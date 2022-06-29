@@ -25,7 +25,14 @@ class trainsTableSeeder extends Seeder
             $train->agency = $agencies[rand(0, count($agencies) - 1)];
             $train->departure_station = $faker->city();
             $train->arrival_station = $faker->city();
-            $train->departure_time = 
+            $train->departure_time = $faker->time();
+            $train->arrival_time = $faker->time();
+            $train->train_code = $faker->numberBetween(10000, 50000);
+            $train->carriages_number = $faker->randomDigit();
+            $train->in_time = $faker->boolean();
+            $train->cancelled = $faker->boolean();
+
+            $train->save();
         }
     }
 }
